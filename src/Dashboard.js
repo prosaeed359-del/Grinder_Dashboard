@@ -21,7 +21,7 @@ function Dashboard({ onLogout }) {
   const [resetMessage, setResetMessage] = useState('');
   const [ isResetting , setIsResetting] = useState(false);
 
-  const API_URL = 'http://localhost:3500';
+  const API_URL = 'https://backend-7irv.onrender.com';
   const token = localStorage.getItem('token');
 
   // Fetch grinder data
