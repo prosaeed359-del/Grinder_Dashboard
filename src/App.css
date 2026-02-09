@@ -715,12 +715,18 @@
 @media (max-width: 768px) {
   .dashboard-header {
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+  
+  .logo-section h1 {
+    font-size: 1.4rem;
   }
   
   .indicators-top,
   .indicators-bottom {
     grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
   }
   
   .alarm-panel {
@@ -735,5 +741,298 @@
   .motor-body {
     width: 180px;
     height: 130px;
+  }
+  
+  .dashboard-content {
+    padding: 20px;
+  }
+  
+  .dashboard-grid {
+    padding: 25px;
+  }
+}
+
+/* Mobile Phones - Portrait */
+@media (max-width: 480px) {
+  .dashboard-header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 15px;
+  }
+  
+  .logo-section {
+    gap: 10px;
+  }
+  
+  .logo-icon {
+    font-size: 1.5rem;
+  }
+  
+  .logo-section h1 {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  
+  .header-right {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .status-indicator {
+    font-size: 0.85rem;
+  }
+  
+  .status-dot {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .alarm-bell {
+    font-size: 1.4rem;
+  }
+  
+  .alarm-count {
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+  }
+  
+  .logout-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .dashboard-content {
+    padding: 15px;
+  }
+  
+  .dashboard-grid {
+    padding: 15px;
+    border-radius: 15px;
+  }
+  
+  /* Stack all indicators in single column */
+  .indicators-top,
+  .indicators-bottom {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .indicator-lamp {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  
+  .indicator-lamp p {
+    font-size: 0.95rem;
+    text-align: left;
+    flex: 1;
+  }
+  
+  .lamp {
+    width: 60px;
+    height: 60px;
+    border-width: 3px;
+  }
+  
+  .lamp-icon {
+    font-size: 1.5rem;
+  }
+  
+  /* Motor section - smaller */
+  .motor-section {
+    margin-bottom: 25px;
+  }
+  
+  .motor-image {
+    width: 150px;
+    height: 130px;
+  }
+  
+  .motor-body {
+    width: 130px;
+    height: 100px;
+  }
+  
+  .motor-shaft {
+    width: 40px;
+    height: 20px;
+    right: -20px;
+  }
+  
+  /* Reset button - full width on mobile */
+  .reset-section {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .reset-button {
+    width: 100%;
+    height: 60px;
+    font-size: 1.2rem;
+  }
+  
+  /* Alarm panel adjustments */
+  .alarm-panel-header {
+    padding: 15px;
+  }
+  
+  .alarm-panel-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .ack-all-btn {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+  
+  .alarm-list {
+    padding: 15px;
+  }
+  
+  .alarm-item {
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .alarm-type {
+    font-size: 0.95rem;
+  }
+  
+  .alarm-time {
+    font-size: 0.75rem;
+  }
+  
+  .alarm-message {
+    font-size: 0.9rem;
+  }
+  
+  .severity-badge {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+  }
+  
+  .ack-btn,
+  .delete-btn {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 360px) {
+  .dashboard-header {
+    padding: 10px 12px;
+  }
+  
+  .logo-section h1 {
+    font-size: 1rem;
+  }
+  
+  .header-right {
+    gap: 10px;
+  }
+  
+  .logout-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .dashboard-content {
+    padding: 10px;
+  }
+  
+  .dashboard-grid {
+    padding: 12px;
+    border-radius: 12px;
+  }
+  
+  .indicator-lamp {
+    padding: 8px;
+    gap: 12px;
+  }
+  
+  .indicator-lamp p {
+    font-size: 0.9rem;
+  }
+  
+  .lamp {
+    width: 50px;
+    height: 50px;
+    border-width: 2px;
+  }
+  
+  .lamp-icon {
+    font-size: 1.2rem;
+  }
+  
+  .motor-image {
+    width: 130px;
+    height: 110px;
+  }
+  
+  .motor-body {
+    width: 110px;
+    height: 85px;
+  }
+  
+  .reset-button {
+    height: 55px;
+    font-size: 1.1rem;
+  }
+  
+  .alarm-panel-header h2 {
+    font-size: 1.1rem;
+  }
+  
+  .alarm-item {
+    padding: 10px;
+  }
+  
+  .alarm-type {
+    font-size: 0.9rem;
+  }
+  
+  .alarm-message {
+    font-size: 0.85rem;
+  }
+}
+
+/* Landscape mode for phones */
+@media (max-height: 480px) and (orientation: landscape) {
+  .dashboard-header {
+    padding: 10px 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .logo-section h1 {
+    font-size: 1.2rem;
+  }
+  
+  .indicators-top,
+  .indicators-bottom {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .lamp {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .motor-image {
+    width: 140px;
+    height: 120px;
+  }
+  
+  .motor-body {
+    width: 120px;
+    height: 90px;
   }
 }

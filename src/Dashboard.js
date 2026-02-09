@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+
 import { FaBell, FaTimes, FaCheck } from 'react-icons/fa';
 import './App.css';
 
@@ -24,21 +25,42 @@ function Dashboard({ onLogout }) {
   const API_URL = 'https://backend-7irv.onrender.com';
   const token = localStorage.getItem('token');
 
+  // Fetch alarms function - defined before useEffect
+  const fetchAlarms = useCallback(async () => {
+    try {
+      const response = await fetch(`${API_URL}/api/alarms`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      const data = await response.json();
+      setAlarms(Array.isArray(data) ? data : []);
+    } catch (error) {
+      console.error('Error fetching alarms:', error);
+      setAlarms([]);
+    }
+  }, [token]);
+
   // Fetch grinder data
+
   useEffect(() => {
     const fetchGrinderData = async () => {
       try {
+        console.log('Fetching grinder data with token:', token ? 'Token exists' : 'No token');
         const response = await fetch(`${API_URL}/api/grinder-data`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
         });
+        console.log('Response status:', response.status);
         const data = await response.json();
+        console.log('Received data:', data);
         setGrinderData({...data});
       } catch (error) {
         console.error('Error fetching grinder data:', error);
       }
     };
+
 
     // Initial fetch
     fetchGrinderData();
@@ -47,9 +69,10 @@ function Dashboard({ onLogout }) {
     const interval = setInterval(fetchGrinderData, 2000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [token]);
 
   // Fetch alarm count
+
   useEffect(() => {
     const fetchAlarmCount = async () => {
       try {
@@ -69,29 +92,16 @@ function Dashboard({ onLogout }) {
     const interval = setInterval(fetchAlarmCount, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [token]);
+
 
   // Fetch alarms when panel is opened
   useEffect(() => {
     if (showAlarmPanel) {
       fetchAlarms();
     }
-  }, [showAlarmPanel]);
+  }, [showAlarmPanel, fetchAlarms]);
 
-  const fetchAlarms = async () => {
-    try {
-      const response = await fetch(`${API_URL}/api/alarms`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
-      const data = await response.json();
-      setAlarms(Array.isArray(data) ? data : []);
-    } catch (error) {
-      console.error('Error fetching alarms:', error);
-      setAlarms([]);
-    }
-  };
 
   const handleReset = async () => {
     setIsResetting(true);
