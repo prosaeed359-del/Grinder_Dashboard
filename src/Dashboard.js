@@ -22,7 +22,7 @@ function Dashboard({ onLogout }) {
   const [resetMessage, setResetMessage] = useState('');
   const [ isResetting , setIsResetting] = useState(false);
 
-  const API_URL = 'https://backend-kj2w.onrender.com';
+  const API_URL = 'https://backend-1zq6.onrender.com';
   const token = localStorage.getItem('token');
 
   // Fetch alarms function - defined before useEffect
