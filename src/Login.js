@@ -12,7 +12,7 @@ function Login({ onLogin }) {
     setError(''); // ✅ (optional) clear old error on new submit
 
     try {
-      const response = await fetch('https://backend-7irv.onrender.com/api/login', {
+      const response = await fetch('https://backend-kj2w.onrender.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
